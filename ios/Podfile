@@ -4,6 +4,7 @@ platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 production = ENV["PRODUCTION"] == "1"
 use_frameworks! :linkage => :static
+$RNFirebaseAsStaticFramework = true
 target 'RN_Boilerplate_TS' do
   # Comment the next line if you don't want to use dynamic frameworks
   config = use_native_modules!
