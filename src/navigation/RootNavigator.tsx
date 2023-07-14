@@ -1,15 +1,16 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Home} from '@screens';
 import React from 'react';
-import {APP_SCREEN, RootStackParamList} from './ScreenTypes';
+import {MainNavigator} from './MainNavigator';
+import {APP_SCREEN, RootStackParamList} from './screenType';
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-export const RootNavigation = () => {
+export const RootNavigation = ({token}: {token?: string}) => {
+  console.log('Token: ', token);
   return (
-    <RootStack.Navigator initialRouteName={APP_SCREEN.HOME}>
+    <RootStack.Navigator>
       <RootStack.Screen
-        name={APP_SCREEN.HOME}
-        component={Home}
+        name={APP_SCREEN.MAIN_APP}
+        component={MainNavigator}
         options={{gestureEnabled: false, headerShown: false}}
       />
     </RootStack.Navigator>

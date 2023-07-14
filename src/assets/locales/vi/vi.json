@@ -1,3 +1,12 @@
 {
-  "translation": {}
-}
+    "translation":{
+     "TabBar":{
+        "home":"Trang Chủ",
+        "setting":"Cài Đặt"
+    },
+    "hello" :"Xin chào các nhà phát triển React Native",
+    "language":"Ngôn ngữ",
+    "btn-signIn":"Đăng nhập",
+    "btn-settingLanguage":"Cài đặt ngôn ngữ"
+    }
+ }

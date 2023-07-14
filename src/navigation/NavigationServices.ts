@@ -1,9 +1,8 @@
 import {createRef} from 'react';
 import {CommonActions, NavigationContainerRef} from '@react-navigation/native';
 
-import {RootStackParamList} from './ScreenTypes';
-export const navigationRef =
-  createRef<NavigationContainerRef<RootStackParamList>>();
+import {RootStackParamList} from './screenType';
+export const navigationRef = createRef<NavigationContainerRef>();
 
 export function navigate<RouteName extends keyof RootStackParamList>(
   ...arg: undefined extends RootStackParamList[RouteName]

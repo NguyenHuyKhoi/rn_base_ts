@@ -6,6 +6,7 @@ import {navigationRef} from './NavigationServices';
 import {RootNavigation} from './RootNavigator';
 export const AppContainer = () => {
   //Check all setting app : language, appMode
+  const {token} = useSelector(x => x.appReducer);
   const {i18n} = useTranslation();
   const {language} = useSelector(x => x.language);
   useEffect(() => {
@@ -14,7 +15,7 @@ export const AppContainer = () => {
   }, [language]);
   return (
     <NavigationContainer ref={navigationRef}>
-      <RootNavigation />
+      <RootNavigation token={token} />
       <RXStore />
     </NavigationContainer>
   );

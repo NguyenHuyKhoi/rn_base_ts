@@ -1,15 +1,22 @@
-import {isIos} from '@common';
-import {GlobalMessage, globalMessageRef} from '@components';
-import {AppContainer} from '@navigation';
 import * as React from 'react';
-import {FC, Suspense} from 'react';
-import {I18nextProvider} from 'react-i18next';
-import KeyboardManager from 'react-native-keyboard-manager';
+import {Suspense} from 'react';
+import {FC} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {AppContainer} from '@navigation';
 import {Provider} from 'react-redux';
-import {PersistGate} from 'redux-persist/integration/react';
 import {persistor, store} from './src/redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
+import {I18nextProvider} from 'react-i18next';
 import i18next from './src/utils/i18n/i18n';
+import KeyboardManager from 'react-native-keyboard-manager';
+import {isIos} from '@common';
+import {
+  GlobalLoading,
+  globalLoadingRef,
+  GlobalMessage,
+  globalMessageRef,
+} from '@components';
+
 if (isIos) {
   KeyboardManager.setEnable(true);
   KeyboardManager.setEnableDebugging(false);
@@ -31,6 +38,18 @@ if (isIos) {
   //       // ...
   //   });
 }
+
+const theme = {
+  // ...DefaultTheme,
+  // Specify custom property in nested object
+  colors: {
+    primary: 'rgb(21,47,170)',
+    secondary: 'rgb(50,77,230)',
+    tertiary: 'rgb(246,67,45)',
+    error: 'rgb(208,81,110)',
+  },
+};
+
 interface AppProps {}
 export const App: FC<AppProps> = ({}) => {
   return (
@@ -40,6 +59,7 @@ export const App: FC<AppProps> = ({}) => {
           <I18nextProvider i18n={i18next}>
             <Suspense fallback={null}>
               <AppContainer />
+              <GlobalLoading ref={globalLoadingRef} />
               <GlobalMessage ref={globalMessageRef} />
             </Suspense>
           </I18nextProvider>

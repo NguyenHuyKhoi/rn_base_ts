@@ -1,4 +1,5 @@
-import {_screen_width, sizes} from '@utils';
+import {scale} from '@common';
+import {sizes, _screen_width} from '@utils';
 import React, {useImperativeHandle, useState} from 'react';
 import {
   Modal,
@@ -7,8 +8,8 @@ import {
   Text,
   TouchableWithoutFeedback,
   View,
-  TouchableOpacity,
 } from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export const globalMessageRef = React.createRef<any>();
 export const globalMessage = {
@@ -85,23 +86,23 @@ const styles = StyleSheet.create({
   boxContent: {
     width: _screen_width / 1.5,
     backgroundColor: 'white',
-    borderRadius: sizes._15sdp,
+    borderRadius: scale(sizes._15sdp),
     alignItems: 'center',
   },
   content: {
     alignItems: 'center',
-    padding: sizes._16sdp,
+    padding: scale(sizes._16sdp),
     justifyContent: 'center',
   },
   title: {
-    marginVertical: sizes._16sdp,
+    marginVertical: scale(sizes._16sdp),
   },
   message: {
-    marginBottom: sizes._16sdp,
+    marginBottom: scale(sizes._16sdp),
   },
   button: {
-    width: sizes._80sdp,
-    height: sizes._40sdp,
+    width: scale(sizes._80sdp),
+    height: scale(sizes._40sdp),
     alignItems: 'center',
   },
   titleMess: {
