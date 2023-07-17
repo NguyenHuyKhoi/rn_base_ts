@@ -1,7 +1,6 @@
 import {PageLoading} from '@components';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {channelAPI} from '@src/api';
-import InfiniteList from '@src/components/InfiniteList';
 import {Channel} from '@src/model';
 import {MODEL_TYPE} from '@src/model/faker';
 import {_font_md, _font_xl, _screen_width, sizes, spacing} from '@utils';
@@ -59,16 +58,6 @@ export const ChannelScreen: FC<ChannelScreenProps> = ({}) => {
         end={{x: 0.5, y: 1}}
         style={styles.content}>
         <Text style={styles.gamesTitle}>Quizzes</Text>
-        <InfiniteList
-          type={MODEL_TYPE.GAME}
-          data={games}
-          horizontal
-          itemStyle={{
-            marginHorizontal: spacing(1),
-          }}
-          style={styles.games}
-          snapToInterval={sizes(240)}
-        />
         <Button
           icon="arrow-left"
           mode="outlined"

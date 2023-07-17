@@ -9,7 +9,7 @@ export enum MODEL_TYPE {
   YOUTUBE_VIDEO,
   USER,
 }
-import {YoutubeChannel, YoutubeImage, YoutubeVideo} from './youtube';
+import {YoutubeChannel, YoutubeImage, YoutubeVideo} from './youtube/channel';
 import {Channel} from './channel';
 import {User} from './user';
 

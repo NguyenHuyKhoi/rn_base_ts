@@ -1,42 +1,18 @@
-import {sizes, spacing, _font_lg, _font_md} from '@utils';
+import {colors} from '@src/themes/colors';
 import React, {FC} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 
 interface AnswerProps {
   answer: string;
+  onPress: () => void;
 }
-const Answer: FC<AnswerProps> = ({answer}) => {
+export const Answer: FC<AnswerProps> = ({answer, onPress}) => {
   return (
     <TouchableOpacity
-      style={[styles.container, {backgroundColor: 'rgb(187,194,228)'}]}>
-      <View style={[styles.indexContainer, {backgroundColor: '#233255'}]}>
-        <Text style={styles.index}>{answer}</Text>
-      </View>
+      onPress={onPress}
+      className="py-4 justify-center items-center rounded-xl my-3 mx-5"
+      style={{backgroundColor: colors.bgColor(0.4)}}>
+      <Text className="font-semibold text-white text-2xl">{answer}</Text>
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: sizes(60),
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: spacing(1),
-    marginTop: spacing(3),
-    paddingHorizontal: spacing(1.5),
-  },
-  indexContainer: {
-    width: sizes(40),
-    height: sizes(40),
-    borderRadius: sizes(30),
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  index: {
-    fontSize: _font_lg,
-    color: '#fff',
-  },
-});
-
-export default Answer;

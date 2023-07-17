@@ -22,7 +22,7 @@ export const VideoInfor: FC<Props> = ({video, onGetVideo}) => {
   }, []);
 
   return (
-    <View className="mt-20" style={{height: 300}}>
+    <View className="mt-2" style={{height: 300}}>
       {video ? (
         <YoutubePlayer
           height={300}
@@ -33,7 +33,7 @@ export const VideoInfor: FC<Props> = ({video, onGetVideo}) => {
       ) : (
         <View className="p-4">
           <TextInput onChange={setUri} value={uri || ''} label="Video link" />
-          <Button label="Find" onPress={testFB} />
+          <Button label="Find" onPress={retrieveVideo} />
         </View>
       )}
     </View>

@@ -5,12 +5,22 @@ interface Props {
   label?: string;
   number?: boolean;
   value?: string | number;
-  onChange: (value: string) => void;
+  onChange: (value: string | number | undefined) => void;
 }
 export const TextInput: FC<Props> = ({label, number, value, onChange}) => (
   <RNInput
     value={value === undefined ? '' : value + ''}
-    onChangeText={onChange}
+    onChangeText={a => {
+      if (number) {
+        if (a === '') {
+          onChange(undefined);
+        } else {
+          onChange(parseInt(a, 10));
+        }
+      } else {
+        onChange(a);
+      }
+    }}
     inputMode={number ? 'decimal' : 'text'}
     placeholder={label}
     placeholderTextColor={colors.text + '55'}

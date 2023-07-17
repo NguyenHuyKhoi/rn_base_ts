@@ -32,9 +32,6 @@ export const ProfileScreen: FC<ProfileScreenProps> = ({}) => {
     dispatch(onLogout());
   };
 
-  const goCMS = () => {
-    navigation.navigate(APP_SCREEN.CMS);
-  };
   const {youtube_channel, played_games} = user || ({} as Channel);
 
   return (
@@ -59,13 +56,6 @@ export const ProfileScreen: FC<ProfileScreenProps> = ({}) => {
           style={styles.logoutBtn}
           iconColor={'#999'}
         />
-        <IconButton
-          onPress={goCMS}
-          icon="database-edit"
-          size={sizes(30)}
-          style={styles.cmsBtn}
-          iconColor={'#000'}
-        />
       </View>
       <LinearGradient
         colors={['#233255', '#fff']}
@@ -73,15 +63,6 @@ export const ProfileScreen: FC<ProfileScreenProps> = ({}) => {
         end={{x: 0.5, y: 1}}
         style={styles.content}>
         <Text style={styles.gamesTitle}>Played quizzes</Text>
-        <InfiniteList
-          type={MODEL_TYPE.GAME}
-          data={played_games}
-          horizontal
-          itemStyle={{
-            marginHorizontal: spacing(1),
-          }}
-          style={styles.games}
-        />
       </LinearGradient>
     </View>
   );

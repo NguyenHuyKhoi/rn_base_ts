@@ -5,6 +5,7 @@
     "paths": {
       "@components": ["./src/components"],
       "@screens":["./src/screens"],
+      "@models":["./src/model"],
       "@navigation":["./src/navigation"],
       "@reducer":["./src/redux/reducer"],
       "@saga/*":["./src/redux/saga/*"],

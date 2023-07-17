@@ -1,5 +1,5 @@
 import {Model} from './model';
-import {YoutubeVideo} from './youtube';
+import {YoutubeVideo} from './youtube/channel';
 export interface IQuiz {
   answer?: number;
   answers: string[];
@@ -13,7 +13,6 @@ export interface IGameConfig {
   quiz_num_answers: number;
 }
 export interface IGame extends Model {
-  id: string;
   video: YoutubeVideo;
   config: IGameConfig;
   quizzes: IQuiz[];

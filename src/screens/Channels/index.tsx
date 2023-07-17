@@ -1,7 +1,5 @@
 import {userAPI} from '@src/api/features/user';
-import InfiniteList from '@src/components/InfiniteList';
 import {User} from '@src/model';
-import {MODEL_TYPE} from '@src/model/faker';
 import {_font_xl, _screen_height, sizes, spacing} from '@utils';
 import React, {FC, useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
@@ -28,30 +26,7 @@ export const ChannelsScreen: FC<ChannelsScreenProps> = ({}) => {
           </>
         )}
       </View>
-      <View style={styles.content}>
-        {/* <SegmentedButtons
-          style={styles.tabs}
-          value={tab}
-          onValueChange={setTab}
-          buttons={[
-            {
-              value: 'all',
-              label: 'All',
-              showSelectedCheck: true,
-            },
-            {
-              value: 'subcribe',
-              label: 'Subcribe',
-              showSelectedCheck: true,
-            },
-          ]}
-        /> */}
-        <InfiniteList
-          style={styles.list}
-          type={MODEL_TYPE.CHANNEL}
-          itemStyle={styles.item}
-        />
-      </View>
+      <View style={styles.content} />
     </View>
   );
 };
